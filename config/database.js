@@ -7,7 +7,7 @@ module.exports = async () => {
   };
   try {
     await mongoose.connect(
-      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@shpcake.nuvjd7e.mongodb.net/?retryWrites=true&w=majority`,
+      `mongodb+srv://trantu:admin@shpcake.nuvjd7e.mongodb.net/?retryWrites=true&w=majority`,
       connectionParams
     );
     console.log("connected to datatbase successfully!");
