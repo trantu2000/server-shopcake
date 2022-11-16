@@ -4,9 +4,9 @@
   "description": "fullstack-shopcake",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon server/server",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon server/server"
+    "start": "node server/server.js",
+    "dev": "SET NODE_ENV=development& nodemon server/server",
+    "prod": "SET NODE_ENV=production& nodemon server/server"
   },
   "author": "trantu",
   "license": "ISC",
