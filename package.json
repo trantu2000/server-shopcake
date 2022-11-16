@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "SET NODE_ENV=development& nodemon server/server",
-    "prod": "SET NODE_ENV=production& nodemon server/server",
-    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
+    "prod": "SET NODE_ENV=production& nodemon server/server"
   },
   "author": "trantu",
   "license": "ISC",
