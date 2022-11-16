@@ -31,13 +31,13 @@ app.use('/api/v1', payment)
 app.use('/api/v1', order)
 
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '/frontend')))
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirname, '/frontend')))
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '/frontend/public/index.html'))
-    })
-}
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, '/frontend/public/index.html'))
+//     })
+// }
 
 
 // Phần mềm trung gian để xử lý lỗi
