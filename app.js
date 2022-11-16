@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const path = require('path')
 
+if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: 'server/config/config.env' })
+
 const errorMiddleware = require('./middlewares/errors')
 
 app.use(cors())
@@ -30,10 +32,10 @@ app.use('/api/v1', order)
 
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../frontend')))
+    app.use(express.static(path.join(__dirname, '/frontend')))
 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend/public/index.html'))
+        res.sendFile(path.resolve(__dirname, '/frontend/public/index.html'))
     })
 }
 
