@@ -19,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true ,limit:"300mb"}));
 app.use(bodyParser.json());
 app.use(cookieParser())
 
+dotenv.config({ path: 'server/config/config.env' })
+
 //import all routes
 const products = require('./routes/products')
 const auth = require('./routes/users')
