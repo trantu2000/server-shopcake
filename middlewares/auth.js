@@ -7,12 +7,13 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 // const dotenv = require('dotenv');
 // dotenv.config({ path: '../server/config/config.env' })
 
-const JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
+
 
 
 // Checks if user is authenticated or not
 //Kiểm tra xem người dùng có được xác thực hay không
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
+    const JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
 
     const { token } = req.cookies
     
