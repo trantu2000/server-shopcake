@@ -6,7 +6,8 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 
 // const dotenv = require('dotenv');
 // dotenv.config({ path: '../server/config/config.env' })
-// const JWT_SECRET = 'UEIH4353R4234E09NFDJHDREERRE34FWG2M4KFLS'
+
+const JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
 
 
 // Checks if user is authenticated or not
@@ -21,7 +22,7 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     }
 
     // const decoded = jwt.verify(token, process.env.JWT_SECRET)
-    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    const decoded = jwt.verify(token, JWT_SECRET)
     req.user = await User.findById(decoded.id);
 
     next()
