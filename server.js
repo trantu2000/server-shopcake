@@ -13,8 +13,8 @@ process.on("uncaughtException", (err) => {
 
 // dotenv.config({ path: '../server/config/config.env' })
 // Setting up config file
-if (process.env.NODE_ENV !== "production")
-  require("dotenv").config({ path: "../server/config/config.env" });
+// if (process.env.NODE_ENV !== "production")
+//   require("dotenv").config({ path: "../server/config/config.env" });
 
 //Connecting to datatbase
 connectDatabase();
