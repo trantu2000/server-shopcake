@@ -1,5 +1,8 @@
 // Create and send token and save in the cookie.
 // Tạo và gửi mã token và lưu trong cookie.
+const dotenv = require('dotenv');
+dotenv.config({ path: '../server/config/config.env' })
+
 const sendToken = (user, statusCode, res) => {
 
     // Create Jwt token

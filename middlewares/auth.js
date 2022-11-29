@@ -4,6 +4,9 @@ const jwt = require("jsonwebtoken");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("./catchAsyncErrors");
 
+const dotenv = require('dotenv');
+dotenv.config({ path: '../server/config/config.env' })
+
 // Checks if user is authenticated or not
 //Kiểm tra xem người dùng có được xác thực hay không
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
