@@ -6,7 +6,7 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 
 const dotenv = require('dotenv');
 dotenv.config({ path: '../server/config/config.env' })
-
+const JWT_SECRET = 'UEIH4353R4234E09NFDJHDREERRE34FWG2M4KFLS'
 
 
 // Checks if user is authenticated or not
@@ -14,7 +14,7 @@ dotenv.config({ path: '../server/config/config.env' })
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
 
     const { token } = req.cookies
-    const JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS'
+    
 
     if (!token) {
         return next(new ErrorHandler('Đăng nhập trước để truy cập.', 401))
