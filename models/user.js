@@ -3,8 +3,8 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
-const JWT_EXPIRES_TIME = '7d'
+let JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
+let JWT_EXPIRES_TIME = '7d'
 
 const userSchema = new mongoose.Schema({
   name: {

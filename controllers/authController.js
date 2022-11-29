@@ -67,20 +67,12 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     sendToken(user, 200, res)
 })
 
-// Get currently logged in user details   =>   /api/v1/me
-exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
 
-    res.status(200).json({
-        success: true,
-        user
-    })
-})
 
 
 // Logout user   =>   /api/v1/logout
 exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
-    res.cookie('token', null, {
+    res.cookie('token-cake', null, {
         expires: new Date(Date.now()),
         httpOnly: true
     })
@@ -162,6 +154,8 @@ exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
         user
     })
 })
+
+
 
 // Update user profile   =>   /api/v1/me/update
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
