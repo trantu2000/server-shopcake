@@ -5,9 +5,9 @@ const app = express();
 var cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const path = require('path')
+// const path = require('path')
 
-if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: '../server/config/config.env' })
+// if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: '../server/config/config.env' })
 
 const errorMiddleware = require('./middlewares/errors')
 
