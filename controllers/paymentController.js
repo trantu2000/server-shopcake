@@ -1,6 +1,7 @@
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
-const stripe = require("stripe")("sk_test_51LxNt3D5yEis04AKEZ65LClAR8FAjttNCEEZRcv2HosPcuOXfqyigtgriK9J8mK7GuM8FhHLcpgHBS6R9O76ST7X00weK2Yvcc");
+// const stripe = require("stripe")("sk_test_51LxNt3D5yEis04AKEZ65LClAR8FAjttNCEEZRcv2HosPcuOXfqyigtgriK9J8mK7GuM8FhHLcpgHBS6R9O76ST7X00weK2Yvcc");
 
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // Process stripe payments   =>   /api/v1/payment/process
 exports.processPayment = catchAsyncErrors(async (req, res, next) => {

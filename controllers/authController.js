@@ -72,7 +72,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
 // Logout user   =>   /api/v1/logout
 exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
-    res.cookie('token-cake', null, {
+    res.cookie('token', null, {
         expires: new Date(Date.now()),
         httpOnly: true
     })
