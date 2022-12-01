@@ -5,7 +5,6 @@ const app = express();
 var cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const path = require('path')
 require('dotenv').config()
 
 const errorMiddleware = require('./middlewares/errors')
