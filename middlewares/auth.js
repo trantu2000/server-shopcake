@@ -7,7 +7,7 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 //Kiểm tra xem người dùng có được xác thực hay không
 // Checks if user is authenticated or not
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-  const { token } = req.cookies;
+  const { token } = req.cookie;
 
   if (!token) {
     return next(new ErrorHandler("Vui lòng dăng nhập", 401));

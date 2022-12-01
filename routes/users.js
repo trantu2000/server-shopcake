@@ -4,14 +4,14 @@ const router = express.Router();
 const {
     registerUser,
     loginUser,
-    getUserProfile,
     logoutUser,
     allUsers,
     getUserDetails,
     deleteUser,
     updateUser,
     updateProfile,
-    updatePassword
+    updatePassword,
+    getUserProfile
 } = require('../controllers/authController');
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth');
 
