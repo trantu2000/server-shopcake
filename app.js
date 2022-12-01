@@ -6,7 +6,8 @@ var cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const path = require('path')
-const dotenv = require('dotenv');
+require('dotenv').config()
+// const dotenv = require('dotenv');
 
 // if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: '../server/config/config.env' })
 
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true ,limit:"300mb"}));
 app.use(bodyParser.json());
 app.use(cookieParser())
 
-dotenv.config({ path: 'server/config/config.env' })
+// dotenv.config({ path: 'server/config/config.env' })
 
 //import all routes
 const products = require('./routes/products')
