@@ -1,7 +1,4 @@
 // Create and send token and save in the cookie.
-// Tạo và gửi mã token và lưu trong cookie.
-
-
 const sendToken = (user, statusCode, res) => {
 
     // Create Jwt token
