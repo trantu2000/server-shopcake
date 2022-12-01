@@ -2,7 +2,7 @@
 // Tạo và gửi mã token và lưu trong cookie.
 // const dotenv = require('dotenv');
 // dotenv.config({ path: '../server/config/config.env' })
-let COOKIE_EXPIRES_TIME = '7'
+// let COOKIE_EXPIRES_TIME = '7'
 
 const sendToken = (user, statusCode, res) => {
 

@@ -3,8 +3,8 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-let JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
-let JWT_EXPIRES_TIME = '7d'
+// let JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
+// let JWT_EXPIRES_TIME = '7d'
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -60,17 +60,17 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// Return JWT token
-// userSchema.methods.getJwtToken = function () {
-//   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-//     expiresIn: process.env.JWT_EXPIRES_TIME,
-//   });
-// };
+//Return JWT token
 userSchema.methods.getJwtToken = function () {
-    return jwt.sign({ id: this._id }, JWT_SECRET, {
-      expiresIn: JWT_EXPIRES_TIME,
-    });
-  };
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_TIME,
+  });
+};
+// userSchema.methods.getJwtToken = function () {
+//     return jwt.sign({ id: this._id }, JWT_SECRET, {
+//       expiresIn: JWT_EXPIRES_TIME,
+//     });
+//   };
 
 // Generate password reset token
 // userSchema.methods.getResetPasswordToken = function () {
