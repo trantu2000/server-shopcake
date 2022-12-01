@@ -3,7 +3,7 @@ const ErrorHandler = require("../utils/errorHandler");
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
 
-  if (process.env.NODE_ENV === "DEVELOPMENT") {
+  if (process.env.NODE_ENV === "development") {
     console.log(err);
 
     res.status(err.statusCode).json({
@@ -13,7 +13,7 @@ module.exports = (err, req, res, next) => {
       stack: err.stack,
     });
   }
-  if (process.env.NODE_ENV === "PRODUCTION") {
+  if (process.env.NODE_ENV === "production") {
     let error = { ...err };
 
     error.message = err.message;

@@ -3,8 +3,7 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-// let JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
-// let JWT_EXPIRES_TIME = '7d'
+
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -66,27 +65,23 @@ userSchema.methods.getJwtToken = function () {
     expiresIn: process.env.JWT_EXPIRES_TIME,
   });
 };
-// userSchema.methods.getJwtToken = function () {
-//     return jwt.sign({ id: this._id }, JWT_SECRET, {
-//       expiresIn: JWT_EXPIRES_TIME,
-//     });
-//   };
 
-// Generate password reset token
-// userSchema.methods.getResetPasswordToken = function () {
-//   // Generate token
-//   const resetToken = crypto.randomBytes(20).toString("hex");
 
-//   // Hash and set to resetPasswordToken
-//   this.resetPasswordToken = crypto
-//     .createHash("sha256")
-//     .update(resetToken)
-//     .digest("hex");
+//Generate password reset token
+userSchema.methods.getResetPasswordToken = function () {
+  // Generate token
+  const resetToken = crypto.randomBytes(20).toString("hex");
 
-//   // Set token expire time
-//   this.resetPasswordExpire = Date.now() + 30 * 60 * 1000;
+  // Hash and set to resetPasswordToken
+  this.resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
 
-//   return resetToken;
-// };
+  // Set token expire time
+  this.resetPasswordExpire = Date.now() + 30 * 60 * 1000;
+
+  return resetToken;
+};
 
 module.exports = mongoose.model("User", userSchema);

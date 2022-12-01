@@ -4,16 +4,12 @@ const jwt = require("jsonwebtoken");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("./catchAsyncErrors");
 
-// const dotenv = require('dotenv');
-// dotenv.config({ path: '../server/config/config.env' })
-
-
 
 
 // Checks if user is authenticated or not
 //Kiểm tra xem người dùng có được xác thực hay không
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-    // let JWT_SECRET = 'UEIH4353R4234E09NFDJ34FWG2MNM4U34KFLS';
+
 
     const { token } = req.cookies
     
@@ -23,7 +19,6 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
-    // const decoded = jwt.verify(token, JWT_SECRET)
     req.user = await User.findById(decoded.id);
 
     next()
