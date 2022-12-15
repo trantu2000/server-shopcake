@@ -49,14 +49,10 @@ module.exports = (err, req, res, next) => {
       error = new ErrorHandler(message, 400);
     }
 
-    res.status(err.statusCode).json({
+    res.status(error.statusCode || 500).json({
       success: false,
-      message: err.message || "Lỗi máy chủ nội bộ",
+      message: error.message || "Internal Server Error",
     });
   }
 
-  res.status(err.statusCode).json({
-    success: false,
-    error: err.stack,
-  });
 };
