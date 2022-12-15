@@ -57,13 +57,8 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   if (!isPasswordMatched) {
     return next(new ErrorHandler("Invalid Email or Password", 401));
   }
-  res.status(201).cookie('token', token, options).json({
-    success: true,
-    token,
-    user
-})
 
-  // sendToken(user, 200, res);
+  sendToken(user, 200, res);
 });
 
 // Logout user   =>   /api/v1/logout
