@@ -2,14 +2,11 @@
   "name": "shopcake",
   "version": "1.0.0",
   "description": "fullstack-shopcake",
-  "main": "server.js",
-  "engines": {
-    "node": "14.x"
-  },
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "SET NODE_ENV=development& nodemon server/server",
-    "prod": "SET NODE_ENV=production& nodemon server/server"
+    "start": "node index.js",
+    "dev": "SET NODE_ENV=development & nodemon server/server",
+    "prod": "SET NODE_ENV=production & nodemon server/server"
   },
   "author": "trantu",
   "license": "ISC",
