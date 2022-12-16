@@ -14,7 +14,7 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Vui lòng dăng nhập", 401));
   }
 
-  const decoded = jwt.verify(token, `UEIH4353R4234E09NFDJ34FWG2MNM`);
+  const decoded = jwt.verify(token, "UEIH4353R4234E09NFDJ34FWG2MNM");
   req.user = await User.findById(decoded.id);
 
   next();
