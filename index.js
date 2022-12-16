@@ -1,9 +1,10 @@
+require('dotenv').config()
 const app = require("./app");
 const connectDatabase = require("./config/database");
 
 // const dotenv = require('dotenv');
 const cloudinary = require("cloudinary").v2;
-require('dotenv').config()
+
 
 // Handle Uncaught exceptions
 process.on("uncaughtException", (err) => {
