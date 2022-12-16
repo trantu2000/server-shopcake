@@ -1,20 +1,19 @@
 const express = require('express')
 const app = express();
 
-
+var cookieParser = require('cookie-parser')
 var cors = require('cors')
-const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 require('dotenv').config()
 
 const errorMiddleware = require('./middlewares/errors')
 
-
+app.use(cookieParser())
 app.use(cors())
 app.use(express.json({limit:"300mb"}));
 app.use(bodyParser.urlencoded({ extended: true ,limit:"300mb"}));
 app.use(bodyParser.json());
-app.use(cookieParser())
+
 
 
 
