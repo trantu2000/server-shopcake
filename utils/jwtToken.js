@@ -10,7 +10,7 @@ const sendToken = (user, statusCode, res) => {
             Date.now() + 8 * 24 * 60 * 60 * 1000
         ),
         httpOnly: true,
-        secure:true
+        secure:false
     }
 
 
