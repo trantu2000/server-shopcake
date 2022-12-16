@@ -61,8 +61,8 @@ userSchema.methods.comparePassword = async function (enteredPassword) {
 
 // Return JWT token
 userSchema.methods.getJwtToken = function () {
-    return jwt.sign({ id: this._id }, `UEIH4353R4234E09NFDJ34FWG2MNM`, {
-        expiresIn: `8d`
+    return jwt.sign({ id: this._id }, "UEIH4353R4234E09NFDJ34FWG2MNM", {
+        expiresIn: "24h"
     });
 }
 
