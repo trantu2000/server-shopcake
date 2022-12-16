@@ -8,11 +8,11 @@ require('dotenv').config()
 const app = express();
 const errorMiddleware = require('./middlewares/errors')
 
-app.use(cookieParser())
 app.use(cors())
 app.use(express.json({limit:"300mb"}));
 app.use(bodyParser.urlencoded({ extended: true ,limit:"300mb"}));
 app.use(bodyParser.json());
+app.use(cookieParser())
 
 
 
