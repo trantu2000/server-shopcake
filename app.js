@@ -1,22 +1,25 @@
 require('dotenv').config()
 const express = require('express')
 const cookieParser = require('cookie-parser')
-const cors = require('cors')
+import cors from "cors";
+// const cors = require('cors')
 const bodyParser = require('body-parser')
 
 
 
 const app = express();
-const errorMiddleware = require('./middlewares/errors')
-
 app.use(cors())
+
+
+
 app.use(express.json({limit:"300mb"}));
-app.use(bodyParser.urlencoded({ extended: true ,limit:"300mb"}));
+// app.use(bodyParser.urlencoded({ extended: true ,limit:"300mb"}));
+app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser())
 
 
-
+const errorMiddleware = require('./middlewares/errors')
 
 //import all routes
 const products = require('./routes/products')
