@@ -1,8 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const cookieParser = require('cookie-parser')
-import cors from "cors";
-// const cors = require('cors')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 
 
