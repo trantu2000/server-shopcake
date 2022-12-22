@@ -4,12 +4,12 @@ const sendToken = (user, statusCode, res) => {
   const token = user.getJwtToken();
 
   // Options for cookie
-  const options = {
-    expires: new Date(Date.now() + 900000),
-    httpOnly: true,
-  };
+//   const options = {
+//     expires: new Date(Date.now() + 900000),
+//     httpOnly: true,
+//   };
 
-  res.status(statusCode).cookie("token-shopcake", token, options).json({
+  res.status(statusCode).cookie("token-shopcake", token, { expires: new Date(Date.now() + 900000), httpOnly: true }).json({
     success: true,
     token,
     user,
