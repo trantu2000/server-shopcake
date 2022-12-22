@@ -5,9 +5,9 @@ const sendToken = (user, statusCode, res) => {
 
   // Options for cookie
   const options = {
+    expires: new Date(Date.now() + 8 * 3600000),
     domain: "https://client-shopcake-tranthanhtu.vercel.app",
     path: "/",
-    expires: new Date(Date.now() + 8 * 3600000),
     httpOnly: true,
     secure: true
   };
