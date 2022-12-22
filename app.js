@@ -3,14 +3,9 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-
-
-
 const app = express();
+
 app.use(cors())
-
-
-
 app.use(express.json({limit:"300mb"}));
 app.use(bodyParser.urlencoded({ extended: true ,limit:"10000mb"}));
 app.use(bodyParser.json());
