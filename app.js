@@ -9,16 +9,7 @@ const app = express();
 //     origin:"https://tucake.vercel.app"
 // }))
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://tucake.vercel.app");
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
 app.use(express.json({ limit: "300mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
