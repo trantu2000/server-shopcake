@@ -20,7 +20,7 @@ const sendToken = (user, statusCode, res) => {
     //   };
 
 
-    res.status(statusCode).cookie('token-shopcake', token, options).json({
+    res.status(statusCode).cookie('tokenCake', token, options).json({
         success: true,
         token,
         user
