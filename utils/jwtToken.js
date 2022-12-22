@@ -9,7 +9,7 @@ const sendToken = (user, statusCode, res) => {
     httpOnly: true,
   };
 
-  res.status(statusCode).cookie("token-shopcake", token, { expires: new Date(Date.now() + 900000), httpOnly: true }).json({
+  res.status(statusCode).cookie("token-shopcake", token, { domain: 'https://client-shopcake-tranthanhtu.vercel.app', encode: String }).json({
     success: true,
     token,
     user,
