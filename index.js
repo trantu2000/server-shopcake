@@ -2,17 +2,6 @@ require('dotenv').config()
 const app = require("./app");
 const connectDatabase = require("./config/database");
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://tucake.vercel.app");
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-
 // const dotenv = require('dotenv');
 const cloudinary = require("cloudinary").v2;
 
