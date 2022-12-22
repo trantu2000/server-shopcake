@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const app = express();
 
 app.use(cors({
-    origin:"https://server-shopcake-trantu.vercel.app"
+    origin:"https://tucake.vercel.app"
 }))
 app.use(express.json({limit:"300mb"}));
 app.use(bodyParser.urlencoded({ extended: true }));
