@@ -11,7 +11,8 @@ const sendToken = (user, statusCode, res) => {
         // ),
         expires: new Date(Date.now() + 8 * 3600000),
         httpOnly: true,
-        secure: true
+        secure: true,
+        domain: "https://client-shopcake-tranthanhtu.vercel.app",
     }
     // const options = {
     //     expires: new Date(Date.now() + 8 * 3600000),
@@ -22,7 +23,7 @@ const sendToken = (user, statusCode, res) => {
     //   };
 
 
-    res.status(statusCode).cookie('token', token, options).json({
+    res.status(statusCode).cookie('token-cake-tu', token, options).json({
         success: true,
         token,
         user
