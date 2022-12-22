@@ -5,11 +5,14 @@ const sendToken = (user, statusCode, res) => {
 
   // Options for cookie
   const options = {
-    expires: new Date(Date.now() + 900000),
+    domain: "https://client-shopcake-tranthanhtu.vercel.app",
+    path: "/",
+    expires: new Date(Date.now() + 8 * 3600000),
     httpOnly: true,
+    secure: true
   };
 
-  res.status(statusCode).cookie("token-shopcake", token, { domain: 'https://client-shopcake-tranthanhtu.vercel.app', encode: String }).json({
+  res.status(statusCode).cookie("token-shopcake","Bearer", token, options).json({
     success: true,
     token,
     user,
