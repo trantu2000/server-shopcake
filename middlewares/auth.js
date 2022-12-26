@@ -6,18 +6,38 @@ const catchAsyncErrors = require("./catchAsyncErrors");
 
 //Kiểm tra xem người dùng có được xác thực hay không
 // Checks if user is authenticated or not
-exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-  const token  = req.cookies;
+// exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
+//   const token  = req.cookies;
 
-  if (!token) {
-    return next(new ErrorHandler("Vui lòng dăng nhập", 401));
+//   if (!token) {
+//     return next(new ErrorHandler("Vui lòng dăng nhập", 401));
+//   }
+
+//   const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//   req.user = await User.findById(decoded.id);
+
+//   next();
+// });
+
+exports.isAuthenticatedUser = async (req, res, next) => {
+  const authHeader = req.header('Authorization')
+  const token = authHeader && authHeader.split(' ')[1]
+
+  if (!token)
+      return res
+          .status(401)
+          .json({ success: false, message: 'Access token not found' })
+  try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET)
+      // req.userId = decoded.userId
+      req.user = await User.findById(decoded.id);
+      next()
+  } catch (error) {
+      console.log(error);
+      return res.status(403).json({success: false, message: 'Invalid token'})
   }
 
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
-  req.user = await User.findById(decoded.id);
-
-  next();
-});
+}
 
 // Handling users roles
 exports.authorizeRoles = (...roles) => {
